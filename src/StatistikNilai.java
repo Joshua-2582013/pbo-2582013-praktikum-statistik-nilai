@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Scanner;
 
 public class StatistikNilai {
@@ -70,6 +71,9 @@ public class StatistikNilai {
         }
         System.out.println("Terendah        : " + terendah);
 
+        /*Harus putaran kedua karena rata-rata berubah tiap ada nilai baru yang di input, jadi baru final
+        setelah semua nilai terbaca habis. Kalau dibandingkan sambil membaca nilainya, pembandingnya
+        masih rata-rata sementara, hasilnya bakalan salah.*/
         int diAtas = 0;
         for (int n : daftar) {
             if (n > rata) {
@@ -93,12 +97,18 @@ public class StatistikNilai {
             }
         }
 
-            String[] grade = {"A", "B", "C", "D", "E"};
-            System.out.print("Distribusi     :");
-            for (int i = 0; i < jumlahGrade.length; i++) {
-                System.out.print(grade[i] + "=" + jumlahGrade[i] + " ");
+        String[] grade = {"A", "B", "C", "D", "E"};
+        System.out.print("Distribusi      : ");
+        for (int i = 0; i < jumlahGrade.length; i++) {
+            System.out.print(grade[i] + "=" + jumlahGrade[i] + " ");
             }
         System.out.println();
+
+        ArrayList<Integer> terurut = new ArrayList<>(daftar);
+        Collections.sort(terurut);
+
+        System.out.println("Terurut         : " + terurut);
+        System.out.println("Urutan asli     : " + daftar);
         }
     }
 
