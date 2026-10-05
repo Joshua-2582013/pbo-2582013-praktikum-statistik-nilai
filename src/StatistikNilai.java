@@ -24,7 +24,14 @@ public class StatistikNilai {
             }
             daftar.add(nilai);
         } while (nilai != SELESAI);
-        System.out.println(daftar);
+
+        if (daftar.isEmpty()) {
+            System.out.println("Tidak ada nilai yang dimasukkan.");
+            return;
+        }
+        System.out.println();
+        System.out.println("Nilai tersimpan : " + daftar);
+        System.out.println("Jumlah          : " + daftar.size());
 
     }
 }
