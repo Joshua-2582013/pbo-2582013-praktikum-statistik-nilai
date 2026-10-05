@@ -70,5 +70,35 @@ public class StatistikNilai {
         }
         System.out.println("Terendah        : " + terendah);
 
+        int diAtas = 0;
+        for (int n : daftar) {
+            if (n > rata) {
+                diAtas++;
+            }
+        }
+        System.out.println("Di atas rata2   : " + diAtas + " orang");
+
+        int[] jumlahGrade = new int[5];
+        for (int n : daftar) {
+            if (n >= 90) {
+                jumlahGrade[0]++;
+            } else if (n >= 80) {
+                jumlahGrade[1]++;
+            } else if (n >= 70) {
+                jumlahGrade[2]++;
+            } else if (n >= 60) {
+                jumlahGrade[3]++;
+            } else {
+                jumlahGrade[4]++;
+            }
+        }
+
+            String[] grade = {"A", "B", "C", "D", "E"};
+            System.out.print("Distribusi     :");
+            for (int i = 0; i < jumlahGrade.length; i++) {
+                System.out.print(grade[i] + "=" + jumlahGrade[i] + " ");
+            }
+        System.out.println();
+        }
     }
-}
+
