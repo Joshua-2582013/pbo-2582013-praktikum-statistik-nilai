@@ -18,7 +18,6 @@ public class StatistikNilai {
             // pakai size() karena jumlah isi daftar = nilai yang sudah tersimpan,
             // jadi nomor berikutnya = size() + 1 (tidak perlu variabel penghitung sendiri)
             System.out.print("Nilai ke-" + (daftar.size() + 1) + " : ");
-            System.out.print("Nilai ke-" + (daftar.size() + 1) + " : ");
             nilai = input.nextInt();
 
             if (nilai == SELESAI) { /* dalam satu putaran, kalau begini... skip dan lanjutkan */
@@ -49,7 +48,27 @@ public class StatistikNilai {
         double rata = (double) total / daftar.size(); /* perhitungan rata caranya variabel total dibagi daftar size */
         /* dibuat double biar java ga membulatkan kebawah */
 
-        System.out.printf("Rata-rata       : %.2f%n", rata);
         /* 2f%n" artinya tampilkan desimal dengan 2 angka di belakang koma dan ganti baris */
+        System.out.printf("Rata-rata       : %.2f%n", rata);
+
+        // tertinggi dan terendah dimulai dari nilai pertama di daftar (get(0)), bukan 0.
+        // Kalau terendah dimulai dari 0, tidak ada nilai yang lebih kecil dari 0,
+        // jadi hasilnya salah terus. Nilai pertama pasti ada di daftar, jadi aman.
+        int tertinggi = daftar.get(0);
+        for (int i = 1; i < daftar.size(); i++) {
+            if (daftar.get(i) > tertinggi) {
+                tertinggi = daftar.get(i);
+            }
+        }
+        System.out.println("Tertinggi       : " + tertinggi);
+
+        int terendah = daftar.get(0);
+        for (int i = 1; i < daftar.size(); i++) {
+            if (daftar.get(i) < terendah) {
+                terendah = daftar.get(i);
+            }
+        }
+        System.out.println("Terendah        : " + terendah);
+
     }
 }
